@@ -1,18 +1,24 @@
 package org.community.user.domain;
 
+import org.community.common.domain.PositiveIntegerCounter;
+
 import java.util.Objects;
 
 public class User {
     private final Long id;
     private final UserInfo userInfo;
-    private final UserRelationCounter followingCount;
-    private final UserRelationCounter followerCounter;
+    private final PositiveIntegerCounter followingCount;
+    private final PositiveIntegerCounter followerCounter;
 
     public User(Long id, UserInfo userInfo) {
         this.id = id;
         this.userInfo = userInfo;
-        this.followingCount = new UserRelationCounter();
-        this.followerCounter = new UserRelationCounter();
+        this.followingCount = new PositiveIntegerCounter();
+        this.followerCounter = new PositiveIntegerCounter();
+    }
+
+    public Long getId() {
+        return id;
     }
 
     //팔로우
