@@ -11,14 +11,13 @@ public class User {
     private final PositiveIntegerCounter followerCounter;
 
     public User(Long id, UserInfo userInfo) {
+        if (userInfo == null) {
+            throw new IllegalArgumentException();
+        }
         this.id = id;
         this.userInfo = userInfo;
         this.followingCount = new PositiveIntegerCounter();
         this.followerCounter = new PositiveIntegerCounter();
-    }
-
-    public Long getId() {
-        return id;
     }
 
     //팔로우
@@ -67,4 +66,19 @@ public class User {
     public int hashCode() {
         return Objects.hashCode(id);
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public int followerCount() {
+        return followerCounter.getCount();
+    }
+
+    public int followingCount() {
+        return followingCount.getCount();
+    }
+
+
+
 }
