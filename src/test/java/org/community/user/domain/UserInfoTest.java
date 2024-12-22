@@ -14,8 +14,7 @@ class UserInfoTest {
         String name = "name";
         String profileImageUrl = "";
 
-        // when
-        // then
+        // when, then
         assertDoesNotThrow(() -> new UserInfo(name, profileImageUrl));
     }
 
@@ -25,8 +24,7 @@ class UserInfoTest {
         String name = "";
         String profileImageUrl = "";
 
-        // when
-        // then
+        // when, then
         assertThrows(IllegalArgumentException.class, () -> new UserInfo(name, profileImageUrl));
     }
 
